@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Menu</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="menu-container">
+    <h1>Bauturi</h1>
+
+    <div class="menu-section">
+        <h2>Cocktails</h2>
+
+        <div class="menu-item">
+            <span>Titlu preparat</span>
+            <span class="dropdown-icon">&#x25BC;</span>
+            <div class="dish-details">
+                <p>Ingrediente: </p>
+                <p>Instructiuni de preparare: </p>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="menu-section">
+        <h2>Smooties</h2>
+
+        
+    </div>
+
+    <div class="home-button-container" style="text-align:center;">
+        <a href="index.html" class="home-button">
+            Back to main page
+        </a>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const details = item.querySelector('.dish-details');
+            const icon = item.querySelector('.dropdown-icon');
+            const isActive = item.classList.contains('active');
+            
+            if (isActive) {
+                details.style.display = 'none';
+                item.classList.remove('active');
+            } else {
+                document.querySelectorAll('.dish-details').forEach(detail => detail.style.display = 'none');
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                details.style.display = 'block';
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
